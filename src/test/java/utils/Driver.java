@@ -23,7 +23,7 @@ public class Driver {
         if (driver == null) {
             String browser = ConfigReader.getProperty("browser").toLowerCase();
             switch (browser) {
-                case "chrom":
+                case "chrome":
                     driver = new ChromeDriver();
                     break;
                 case "edge":
