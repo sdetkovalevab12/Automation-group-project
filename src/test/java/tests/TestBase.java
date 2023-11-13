@@ -41,7 +41,7 @@ public class TestBase {
             String path = SeleniumUtils.getScreenshot("failedTest");
             logger.addScreenCaptureFromPath(path);
         }
-        //Driver.quitDriver();
+        Driver.quitDriver();
     }
 
 

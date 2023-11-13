@@ -9,6 +9,7 @@ import pages.CreateAnAccountPage;
 import pages.SignInPage;
 import utils.Driver;
 
+
 public class LogInNegative extends TestBase {
     Faker faker = new Faker();
     String AccountDashboardTitle = Driver.getDriver().getTitle();
@@ -16,6 +17,8 @@ public class LogInNegative extends TestBase {
     SignInPage signInPage = new SignInPage();
     @BeforeMethod
     public void goToSignIn() {
+
+
         //takes the User to the Sign-In Page and verifies that this is the correct Page
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();

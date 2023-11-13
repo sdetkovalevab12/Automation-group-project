@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
 import utils.Driver;
 
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,7 +18,7 @@ public class AccountCreationPositive extends TestBase {
 
     Faker faker = new Faker();
 
-    @Test
+    @Test(groups = "smoke")
     public void fillOutValidData () throws InterruptedException {
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();

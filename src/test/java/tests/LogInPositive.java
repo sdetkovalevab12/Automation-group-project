@@ -9,7 +9,7 @@ import utils.ConfigReader;
 import utils.Driver;
 
 public class LogInPositive extends SignUpOption{
-    @Test
+    @Test (groups = "smoke")
     public void goToSignIn() throws InterruptedException {
         //takes the User to the Sign-In Page and verifies that this is the correct Page, provides valid credentials,
         // Logs In and verifies that the Page is the Account Dashboard Page
