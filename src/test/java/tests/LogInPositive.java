@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
 import pages.SignInPage;
+import utils.ConfigReader;
 import utils.Driver;
 
 public class LogInPositive extends SignUpOption{
@@ -21,8 +22,8 @@ public class LogInPositive extends SignUpOption{
         Assert.assertEquals(SignInPageTitle, expectedSignInPageTitle);
 
         SignInPage signInPage = new SignInPage();
-        signInPage.getLogInEmailAddressInputField().sendKeys("pojo@fastmail.us");
-        signInPage.getLogInPasswordInputField().sendKeys("D5-test", Keys.ENTER);
+        signInPage.getLogInEmailAddressInputField().sendKeys(ConfigReader.getProperty("username"));
+        signInPage.getLogInPasswordInputField().sendKeys(ConfigReader.getProperty("password"), Keys.ENTER);
 
         Thread.sleep(2000);
         String AccountDashboardTitle = Driver.getDriver().getTitle();

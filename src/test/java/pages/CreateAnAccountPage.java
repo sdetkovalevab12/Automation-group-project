@@ -53,6 +53,9 @@ public class CreateAnAccountPage extends TestBase {
     @FindBy(id = "profileCompanyType")
     private WebElement companyTypeSelector;
 
+    @FindBy(id = "profileCompanyCategory")
+    private WebElement companyCategorySelector;
+
     @FindBy(id = "billcompany")
     private WebElement companyNameField;
 
