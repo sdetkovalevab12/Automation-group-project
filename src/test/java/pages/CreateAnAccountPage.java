@@ -26,6 +26,45 @@ public class CreateAnAccountPage {
     @FindBy(xpath = "//a[@href = '/myaccount/?logout=Y']")
     private WebElement logOutButton;
 
+    @FindBy(id = "email")
+    private WebElement emailField;
+
+    @FindBy(id = "receive_specials")
+    private WebElement receiveCouponsCheckBox;
+
+    @FindBy(id = "billname")
+    private WebElement nameField;
+
+    @FindBy(id = "billaddr")
+    private WebElement addressLine1;
+
+    @FindBy(id = "billcountry")
+    private WebElement countrySelector;
+
+    @FindBy(id = "billzip")
+    private WebElement zipField;
+
+    @FindBy(id = "billphone")
+    private WebElement phoneField;
+
+    @FindBy(id = "same")
+    private WebElement sameAsBillingCheckBox;
+
+    @FindBy(id = "profileCompanyType")
+    private WebElement companyTypeSelector;
+
+    @FindBy(id = "billcompany")
+    private WebElement companyNameField;
+
+    @FindBy(id = "billnum_employees")
+    private WebElement companySizeSelector;
+
+    @FindBy(id = "password")
+    private WebElement passwordCreationField;
+
+    @FindBy(id = "complete_registration")
+    private WebElement createMyAccountButton;
+
     public void clickSignInAccountButton() {
         signInAccountButton.click();
     }
