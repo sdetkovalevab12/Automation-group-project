@@ -8,7 +8,7 @@ import pages.SignInPage;
 import utils.Driver;
 
 public class LogInNegative extends SignUpOption {
-    @Test
+    @Test (groups = "smoke")
     public void goToSignIn() throws InterruptedException {
         //takes the User to the Sign-In Page and verifies that this is the correct Page
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();

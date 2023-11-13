@@ -21,20 +21,20 @@ import java.util.List;
 public class SearchTest extends TestBase{
 
 
-
-    @Test
+//Verification of the Page title on: main page, subcategory page, search page
+    @Test(groups = "regression")
     public void searchTest_WP14()  {
         HomePage homePage= new HomePage();
         Assert.assertTrue(Driver.getDriver().getTitle().contains(ConfigReader.getProperty("mainPageTitle")));
         String categoryName= homePage.getCategories().get(1).getText();
         SeleniumUtils.jsClick(homePage.getCategories().get(1));
         Assert.assertTrue(Driver.getDriver().getTitle().contains(categoryName));
-       // homePage.getSearchBar().sendKeys(ConfigReader.getProperty("searchTerm"), Keys.ENTER);
         new HomePage().search();
         Assert.assertTrue(Driver.getDriver().getTitle().toLowerCase().contains(ConfigReader.getProperty("searchTerm")));
     }
 
-    @Test
+    //Correct search Verificaton (correct amout of results, ech result contains search term)
+    @Test (groups = "smoke")
     public void searchTest_WP15(){
 
         SearchResultPage searchResultPage = new SearchResultPage();
@@ -45,10 +45,10 @@ public class SearchTest extends TestBase{
                 (s -> Assert.assertTrue(s.toLowerCase().contains(ConfigReader.getProperty("searchTerm"))));
     }
 
-    @Test
+    //selecting a category, going to the subcategory page, verifing the page header matches
+    @Test(groups = "regression")
     public void searchTest_WP16(){
 
-       // new HomePage().getSearchBar().sendKeys(ConfigReader.getProperty("searchTerm"), Keys.ENTER);
         new HomePage().search();
         SearchResultPage page =new SearchResultPage();
         List<WebElement> categories = page.getSuggestedCategories();
@@ -59,7 +59,8 @@ public class SearchTest extends TestBase{
 
     }
 
-    @Test
+    //invalid input search
+    @Test(groups = "regression")
     public void searchTest_WP17(){
 
         InvalidSearchResultPage invalidSearchResultPage= new InvalidSearchResultPage();
@@ -72,8 +73,8 @@ public class SearchTest extends TestBase{
 
     }
 
-
-    @Test
+ //applying filters to search results
+    @Test(groups = "regression")
     public void searchTest_WP18(){
 
        new HomePage().search();

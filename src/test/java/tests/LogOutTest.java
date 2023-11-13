@@ -6,7 +6,7 @@ import pages.CreateAnAccountPage;
 import utils.Driver;
 
 public class LogOutTest extends SignUpOption{
-    @Test
+    @Test(groups = "smoke")
     public void LogOut() throws InterruptedException {
         //need to Log In first
         LogInPositive logInPositivePage = new LogInPositive();
