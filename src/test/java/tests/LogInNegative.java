@@ -18,7 +18,6 @@ public class LogInNegative extends TestBase {
     @BeforeMethod
     public void goToSignIn() {
 
-
         //takes the User to the Sign-In Page and verifies that this is the correct Page
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();
@@ -29,19 +28,19 @@ public class LogInNegative extends TestBase {
     }
 
     //User provides invalid credentials
-    @Test
+    @Test(groups="smoke")
     public void validEmailInvalidPass(){
         signInPage.getLogInEmailAddressInputField().sendKeys("pojo@fastmail.us");
         signInPage.getLogInPasswordInputField().sendKeys(faker.internet().password(), Keys.ENTER);
         Assert.assertNotEquals(AccountDashboardTitle, expectedAccountDashboardTitle);
     }
-    @Test
+    @Test(groups="smoke")
     public void invalidEmailValidPass(){
         signInPage.getLogInEmailAddressInputField().sendKeys(faker.internet().emailAddress());
         signInPage.getLogInPasswordInputField().sendKeys("D5-test", Keys.ENTER);
         Assert.assertNotEquals(AccountDashboardTitle, expectedAccountDashboardTitle);
     }
-    @Test
+    @Test(groups="smoke")
     public void invalidEmailInvalidPass(){
         signInPage.getLogInEmailAddressInputField().sendKeys(faker.internet().emailAddress()+"1");
         signInPage.getLogInPasswordInputField().sendKeys(faker.internet().password()+"1", Keys.ENTER);
