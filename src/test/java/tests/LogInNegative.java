@@ -15,7 +15,7 @@ public class LogInNegative extends TestBase {
     String expectedAccountDashboardTitle = "Restaurant Supplies, Restaurant Supply at WebstaurantStore";
     SignInPage signInPage = new SignInPage();
     @BeforeMethod
-    public void goToSignIn() throws InterruptedException {
+    public void goToSignIn() {
         //takes the User to the Sign-In Page and verifies that this is the correct Page
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();
