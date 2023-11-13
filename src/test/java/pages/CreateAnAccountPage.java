@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +8,7 @@ import tests.TestBase;
 import utils.Driver;
 
 @Test
-public class CreateAnAccountPage {
+public class CreateAnAccountPage extends TestBase {
     public CreateAnAccountPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
