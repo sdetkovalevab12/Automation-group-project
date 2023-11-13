@@ -1,13 +1,17 @@
 package pages;
 
+import com.github.javafaker.Faker;
+import lombok.Data;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import utils.Driver;
 
-@Test
+@Test @Data
 public class SignInPage {
+    Faker faker = new Faker();
+
     public SignInPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -18,6 +22,4 @@ public class SignInPage {
     @FindBy(id = "password")
     private WebElement logInPasswordInputField;
 
-    public WebElement getLogInEmailAddressInputField() {return logInEmailAddressInputField;}
-    public WebElement getLogInPasswordInputField() {return logInPasswordInputField;}
 }
