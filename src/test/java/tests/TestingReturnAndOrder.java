@@ -6,7 +6,7 @@ import pages.ReturnAndOrders;
 import utils.Driver;
 
 public class TestingReturnAndOrder extends TestBase{
-@Test
+@Test(groups = "smoke")
     public void testCase1(){
 
 // Click return and order and logging inn the account
@@ -21,7 +21,7 @@ public class TestingReturnAndOrder extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void testCase2(){
 
     // Verifying orders by clicking on order button and verifying there is no orders
@@ -36,7 +36,7 @@ public class TestingReturnAndOrder extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void testCase3(){
         //Verifying return orders by clicking return button and verifying there is no returns
 
@@ -49,7 +49,7 @@ public class TestingReturnAndOrder extends TestBase{
         Assert.assertTrue(returnAndOrders.getNoReturns().isDisplayed());
 
     }
-     @Test
+     @Test(groups = "smoke")
     public void testCase4() throws InterruptedException {
     //Verifying if i get notification by email
 
@@ -62,7 +62,7 @@ public class TestingReturnAndOrder extends TestBase{
         Assert.assertTrue(returnAndOrders.getCheckBoxNotification().isDisplayed());
         Assert.assertTrue(returnAndOrders.getCheckBoxNotification().isSelected());
     }
-    @Test
+    @Test(groups = "regression")
     public void testCase5(){
 
       // Verifying if shipping address if its saved on account

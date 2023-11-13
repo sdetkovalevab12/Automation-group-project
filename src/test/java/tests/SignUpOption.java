@@ -9,7 +9,7 @@ import pages.CreateAnAccountPage;
 import utils.Driver;
 
 public class SignUpOption extends TestBase {
-    @Test
+    @Test(groups = "smoke")
     public void goToSignUp() throws InterruptedException {
         //takes the User to the Account Registration Page and verifies that this is the correct Page
 
