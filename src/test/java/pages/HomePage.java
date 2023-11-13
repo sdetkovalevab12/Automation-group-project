@@ -15,4 +15,7 @@ public class HomePage {
 
     @FindBy (name = "searchval")
     private WebElement searchBar;
+
+    @FindBy(xpath = "//li[@class = 'list-none relative']//button[@type = 'button']")
+    private WebElement signInAccountButton;
 }
