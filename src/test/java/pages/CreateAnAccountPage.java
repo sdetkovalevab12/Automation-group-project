@@ -1,5 +1,6 @@
 package pages;
 
+import lombok.Data;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,7 +8,7 @@ import org.testng.annotations.Test;
 import tests.TestBase;
 import utils.Driver;
 
-@Test
+@Test @Data
 public class CreateAnAccountPage extends TestBase {
     public CreateAnAccountPage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -74,6 +75,9 @@ public class CreateAnAccountPage extends TestBase {
         signInButton.click();
     }
     public void clickLogOutButton() {logOutButton.click();}
+    public void clickReceiveCouponsCheckBox() {receiveCouponsCheckBox.click();}
+    public void clickSameAsBillingCheckBox() {sameAsBillingCheckBox.click();}
+    public void clickCreateMyAccountButton() {createMyAccountButton.click();}
 
 
 }
