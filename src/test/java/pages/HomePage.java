@@ -20,12 +20,14 @@ public class HomePage {
     @FindBy (name = "searchval")
     private WebElement searchBar;
 
+
     @FindBy (xpath="//div[@data-testid='nav-show-more-data-items']//a")
     private List<WebElement>  categories;
 
-    public void search(){
+    @FindBy(xpath = "//li[@class = 'list-none relative']//button[@type = 'button']")
+    private WebElement signInAccountButton;
+  
+ public void search(){
         this.searchBar.sendKeys(ConfigReader.getProperty("searchTerm"), Keys.ENTER);
     }
-
-
 }
