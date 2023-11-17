@@ -1,8 +1,6 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -11,12 +9,7 @@ import pages.CreateAnAccountPage;
 import pages.DashboardPage;
 import utils.Driver;
 
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class AccountCreationPositive extends TestBase {
+public class AccountCreationPositiveSameShipAddr extends TestBase {
 
     Faker faker = new Faker();
 

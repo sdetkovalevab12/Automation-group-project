@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
-import tests.AccountCreationPositive;
 import tests.TestBase;
 import utils.Driver;
 
@@ -95,11 +93,14 @@ public class CreateAnAccountPage extends TestBase {
 
     @FindBy(id = "shipcountry")
             private WebElement countrySelectorShip;
+//    Select countrySelectShipping = new Select(countrySelectorShip);
+//    countrySelectShipping.selectByVisibleText("United States");
 
     String nameProvided = faker.name().fullName();
     String emailProvided = faker.internet().emailAddress();
     String addressLine1Provided = "302 S Market St";
-    String countrySelected = getCountrySelected();
+    String countrySelected = "United States";
+    String countrySelectedShip = "United States";
     String zip = "95113";
     String phoneProvided = String.valueOf(faker.phoneNumber().subscriberNumber(10));
     String passwordProvided = faker.internet().password();

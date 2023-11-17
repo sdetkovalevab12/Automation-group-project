@@ -81,5 +81,30 @@ public class AccountCreationPositiveDifferentShippingAddress extends TestBase {
         Assert.assertEquals(actualHeader, expectedHeader);
 
     }
+    @Test
+    public void checkDashBoardInfoDifferentShippingAddresses (){
+        CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
+        DashboardPage dashboardPage = new DashboardPage();
+        //1st column
+        Assert.assertEquals(dashboardPage.getAccountInfoFullName().getText(), createAnAccountPage.getNameProvided());
+        Assert.assertEquals(dashboardPage.getAccountInfoCompanyName(),createAnAccountPage.getCompanyNameField());
+        Assert.assertEquals(dashboardPage.getAccountInfoEmail().getText(), createAnAccountPage.getEmailProvided());
+
+        //2nd column
+        if (createAnAccountPage.getSameAsBillingCheckBox().isSelected())
+        {
+            Assert.assertEquals(dashboardPage.getAccountShippingFullName().getText(), createAnAccountPage.getNameProvided());
+            Assert.assertEquals(dashboardPage.getAccountShippingCompanyName().getText(), createAnAccountPage.getCompanyNameProvided());
+            Assert.assertEquals(dashboardPage.getAccountShippingStreetAddress(), createAnAccountPage.getAddressLine1());
+            Assert.assertEquals(dashboardPage.getShipZipFromDashboard(), createAnAccountPage.getZip());
+            Assert.assertEquals(dashboardPage.getAccountShippingCountry().getText(), createAnAccountPage.getCountrySelected());
+        }else{
+            Assert.assertEquals(createAnAccountPage.getNameField().getText(), "re re");
+
+        }
+        //3rd column
+        //Assert.assertEquals(dashboardPage.
+
+    }
 
 }
