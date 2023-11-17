@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import tests.TestBase;
 import utils.Driver;
 
-@Test @Data
+@Data
 public class CreateAnAccountPage extends TestBase {
     public CreateAnAccountPage() {
         PageFactory.initElements(Driver.getDriver(), this);
