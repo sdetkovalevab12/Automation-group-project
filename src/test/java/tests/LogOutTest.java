@@ -1,8 +1,10 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
+import pages.DashboardPage;
 import utils.Driver;
 
 public class LogOutTest extends SignUpOption{
@@ -16,8 +18,9 @@ public class LogOutTest extends SignUpOption{
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();
         createAnAccountPage.clickLogOutButton();
-        String SignInPageTitle = Driver.getDriver().getTitle();
-        String expectedSignInPageTitle = "Sign In or Create an Account!";
-        Assert.assertEquals(SignInPageTitle, expectedSignInPageTitle);
+
+        String actualLogOutHeader = Driver.getDriver().findElement(By.xpath("//div[@class='portal__main']//h1")).getText();
+        String expectedLogOutHeader = "Login";
+        Assert.assertEquals(actualLogOutHeader, expectedLogOutHeader);
     }
 }

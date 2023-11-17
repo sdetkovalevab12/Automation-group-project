@@ -1,18 +1,22 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import lombok.Data;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import tests.AccountCreationPositive;
 import tests.TestBase;
 import utils.Driver;
 
-@Test @Data
+@Data
 public class CreateAnAccountPage extends TestBase {
     public CreateAnAccountPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    Faker faker = new Faker();
 
     @FindBy(xpath = "//li[@class = 'list-none relative']//button[@type = 'button']")
     private WebElement signInAccountButton;
@@ -67,6 +71,44 @@ public class CreateAnAccountPage extends TestBase {
 
     @FindBy(id = "complete_registration")
     private WebElement createMyAccountButton;
+
+    //Shipping Address
+    @FindBy(id = "shipname")
+            private WebElement shipName;
+            String fullNameShip = faker.name().fullName();
+
+    @FindBy(id = "shipcompany")
+            private WebElement shipCompany;
+            String companyShip = faker.company().name();
+
+    @FindBy(id = "shipaddr")
+            private WebElement shipAddressLine1;
+            String addressLine1Ship = "1600 Amphitheatre Pkwy";
+
+    @FindBy(id = "shipzip")
+            private WebElement shipZip;
+            String zipCodeShip = "94043";
+
+    @FindBy(id = "shipphone")
+            private WebElement shipPhone;
+            String phoneShip = String.valueOf(faker.phoneNumber().subscriberNumber(10));
+
+    @FindBy(id = "shipcountry")
+            private WebElement countrySelectorShip;
+
+    String nameProvided = faker.name().fullName();
+    String emailProvided = faker.internet().emailAddress();
+    String addressLine1Provided = "302 S Market St";
+    String countrySelected = getCountrySelected();
+    String zip = "95113";
+    String phoneProvided = String.valueOf(faker.phoneNumber().subscriberNumber(10));
+    String passwordProvided = faker.internet().password();
+    String companyTypeSelected = getCompanyTypeSelected();
+    String companyCategorySelected = getCompanyCategorySelected();
+    String companyNameProvided = faker.company().name();
+
+
+
 
     public void clickSignInAccountButton() {
         signInAccountButton.click();

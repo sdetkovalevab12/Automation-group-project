@@ -1,25 +1,20 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
 import pages.DashboardPage;
 import utils.Driver;
 
+import java.time.Duration;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class AccountCreationPositive extends TestBase {
-
+public class AccountCreationPositiveDifferentShippingAddress extends TestBase {
     Faker faker = new Faker();
-
     @Test(groups = "smoke")
     public void fillOutValidData () throws InterruptedException {
         DashboardPage dashboardPage = new DashboardPage();
@@ -45,10 +40,22 @@ public class AccountCreationPositive extends TestBase {
         createAnAccountPage.getZipField().sendKeys(createAnAccountPage.getZip());
         createAnAccountPage.getPhoneField().sendKeys(createAnAccountPage.getPhoneProvided());
 
-        if (!(createAnAccountPage.getSameAsBillingCheckBox().isSelected()))
+        if (createAnAccountPage.getSameAsBillingCheckBox().isSelected())
         {
             createAnAccountPage.clickSameAsBillingCheckBox();
         }
+
+        //different Shipping Address
+        createAnAccountPage.getShipName().sendKeys(createAnAccountPage.getFullNameShip());
+        createAnAccountPage.getShipCompany().sendKeys(createAnAccountPage.getCompanyShip());
+        createAnAccountPage.getShipAddressLine1().sendKeys(createAnAccountPage.getAddressLine1Ship());
+
+        Select countrySelectShip = new Select(createAnAccountPage.getCountrySelectorShip());
+        countrySelectShip.selectByVisibleText("United States");
+        String countrySelectedShip = createAnAccountPage.getCountrySelected();
+
+        createAnAccountPage.getShipZip().sendKeys(createAnAccountPage.getZipCodeShip());
+        createAnAccountPage.getShipPhone().sendKeys(createAnAccountPage.getPhoneShip());
 
         Select companyTypeSelect = new Select(createAnAccountPage.getCompanyTypeSelector());
         companyTypeSelect.selectByVisibleText("Entertainment");
@@ -65,6 +72,7 @@ public class AccountCreationPositive extends TestBase {
         String companySize = createAnAccountPage.getCompanySizeSelector().getText();
 
         createAnAccountPage.getPasswordCreationField().sendKeys(createAnAccountPage.getPasswordProvided());
+        Thread.sleep(1000);
         createAnAccountPage.clickCreateMyAccountButton();
         Thread.sleep(3000);
 
@@ -73,7 +81,5 @@ public class AccountCreationPositive extends TestBase {
         Assert.assertEquals(actualHeader, expectedHeader);
 
     }
-
-
 
 }

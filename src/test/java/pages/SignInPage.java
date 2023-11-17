@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import utils.Driver;
 
-@Test @Data
+@Data
 public class SignInPage {
     Faker faker = new Faker();
 
