@@ -12,7 +12,6 @@ import utils.ConfigReader;
 import utils.Driver;
 
 public class LogInPositive extends TestBase{
-    DashboardPage dashboardPage = new DashboardPage();
     @Test (groups = "smoke")
     public void goToSignIn() throws InterruptedException { {
         PageFactory.initElements(Driver.getDriver(), this);

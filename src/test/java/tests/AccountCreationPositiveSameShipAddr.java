@@ -12,8 +12,6 @@ import utils.Driver;
 
 public class AccountCreationPositiveSameShipAddr extends TestBase {
 
-    Faker faker = new Faker();
-
     @Test(groups = "smoke")
     public void fillOutValidData () throws InterruptedException { {
         PageFactory.initElements(Driver.getDriver(), this);

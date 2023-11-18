@@ -26,7 +26,7 @@ public class DashboardTestDifferentShipAddr extends AccountCreationPositiveDiffe
         //2nd column
             Assert.assertEquals(dashboardPage.getAccountShippingFullName().getText(), createAnAccountPage.getFullNameShip());
             Assert.assertEquals(dashboardPage.getAccountShippingCompanyName().getText(), createAnAccountPage.getCompanyShip());
-            Assert.assertEquals(dashboardPage.getAccountShippingStreetAddress(), createAnAccountPage.getAddressLine1Ship());
+            Assert.assertEquals(dashboardPage.getAccountShippingStreetAddress().getText(), createAnAccountPage.getAddressLine1Ship());
             Assert.assertEquals(shipZipFromDashboard, createAnAccountPage.getZipCodeShip());
             Assert.assertEquals(dashboardPage.getAccountShippingCountry().getText(), createAnAccountPage.getCountrySelectedShip());
 

@@ -5,7 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
-import pages.DashboardPage;
 import utils.Driver;
 
 public class LogOutTest extends SignUpOption{
