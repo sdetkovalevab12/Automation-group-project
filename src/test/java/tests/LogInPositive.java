@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
-import pages.DashboardPage;
 import pages.SignInPage;
 import utils.ConfigReader;
 import utils.Driver;
