@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
@@ -13,7 +14,9 @@ import utils.Driver;
 public class LogInPositive extends TestBase{
     DashboardPage dashboardPage = new DashboardPage();
     @Test (groups = "smoke")
-    public void goToSignIn() throws InterruptedException {
+    public void goToSignIn() throws InterruptedException { {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
         //takes the User to the Sign-In Page and verifies that this is the correct Page, provides valid credentials,
         //Logs In and verifies that the Page is the Account Dashboard Page
 

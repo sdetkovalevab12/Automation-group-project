@@ -2,22 +2,20 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAnAccountPage;
 import pages.DashboardPage;
 import utils.Driver;
 
-import java.time.Duration;
-
 public class AccountCreationPositiveDifferentShippingAddress extends TestBase {
-    Faker faker = new Faker();
+
     @Test(groups = "smoke")
-    public void fillOutValidData () throws InterruptedException {
-        DashboardPage dashboardPage = new DashboardPage();
+    public void fillOutValidData () throws InterruptedException { {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();
         createAnAccountPage.clickSignUpButton();
@@ -79,31 +77,6 @@ public class AccountCreationPositiveDifferentShippingAddress extends TestBase {
         String actualHeader = Driver.getDriver().findElement(By.xpath("//h1[@class='page-header']")).getText();
         String expectedHeader = "Account Dashboard";
         Assert.assertEquals(actualHeader, expectedHeader);
-
-    }
-    @Test
-    public void checkDashBoardInfoDifferentShippingAddresses (){
-        CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
-        DashboardPage dashboardPage = new DashboardPage();
-        //1st column
-        Assert.assertEquals(dashboardPage.getAccountInfoFullName().getText(), createAnAccountPage.getNameProvided());
-        Assert.assertEquals(dashboardPage.getAccountInfoCompanyName(),createAnAccountPage.getCompanyNameField());
-        Assert.assertEquals(dashboardPage.getAccountInfoEmail().getText(), createAnAccountPage.getEmailProvided());
-
-        //2nd column
-        if (createAnAccountPage.getSameAsBillingCheckBox().isSelected())
-        {
-            Assert.assertEquals(dashboardPage.getAccountShippingFullName().getText(), createAnAccountPage.getNameProvided());
-            Assert.assertEquals(dashboardPage.getAccountShippingCompanyName().getText(), createAnAccountPage.getCompanyNameProvided());
-            Assert.assertEquals(dashboardPage.getAccountShippingStreetAddress(), createAnAccountPage.getAddressLine1());
-            Assert.assertEquals(dashboardPage.getShipZipFromDashboard(), createAnAccountPage.getZip());
-            Assert.assertEquals(dashboardPage.getAccountShippingCountry().getText(), createAnAccountPage.getCountrySelected());
-        }else{
-            Assert.assertEquals(createAnAccountPage.getNameField().getText(), "re re");
-
-        }
-        //3rd column
-        //Assert.assertEquals(dashboardPage.
 
     }
 

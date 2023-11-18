@@ -2,6 +2,7 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +15,9 @@ public class AccountCreationPositiveSameShipAddr extends TestBase {
     Faker faker = new Faker();
 
     @Test(groups = "smoke")
-    public void fillOutValidData () throws InterruptedException {
+    public void fillOutValidData () throws InterruptedException { {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
         DashboardPage dashboardPage = new DashboardPage();
         CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
         createAnAccountPage.clickSignInAccountButton();

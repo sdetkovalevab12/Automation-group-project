@@ -2,6 +2,7 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,7 +11,9 @@ import pages.SignInPage;
 import utils.Driver;
 
 
-public class LogInNegative extends TestBase {
+public class LogInNegative extends TestBase { {
+    PageFactory.initElements(Driver.getDriver(), this);
+}
     Faker faker = new Faker();
     String AccountDashboardTitle = Driver.getDriver().getTitle();
     String expectedAccountDashboardTitle = "Restaurant Supplies, Restaurant Supply at WebstaurantStore";

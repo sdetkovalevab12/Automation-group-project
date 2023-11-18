@@ -36,8 +36,6 @@ public class DashboardPage extends TestBase {
 
     @FindBy(xpath = "//div[@class='account__section-innerdashboard clearfix']/div[3]/div/text()[4]")
     private WebElement shippingCityStateZip;
-    String zipRetrieve = shippingCityStateZip.getText();
-    String shipZipFromDashboard = zipRetrieve.substring(zipRetrieve.length()-5);
 
     @FindBy(xpath = "//div[@class='account__section-innerdashboard clearfix']/div[3]/div/text()[5]")
     private WebElement accountShippingCountry;
