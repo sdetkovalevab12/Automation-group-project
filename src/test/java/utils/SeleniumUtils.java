@@ -177,7 +177,15 @@ public class SeleniumUtils {
         Driver.getDriver().switchTo().frame(index);
     }
 
+public static void switchBetween2Windows(){
+    String main = Driver.getDriver().getWindowHandle();
+    for (String windowHandle :Driver.getDriver().getWindowHandles()) {
+        if(!windowHandle.equals(main)){
+            Driver.getDriver().switchTo().window(windowHandle);
+        }
+    }
 
+}
 
 
 
