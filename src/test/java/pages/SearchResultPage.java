@@ -27,7 +27,8 @@ public class SearchResultPage {
     @FindBy(id = "sort_options")
      private WebElement  filter;
 
-    @FindBy(xpath = "//p[@data-testid='price']|//p[@class='price font-semibold text-2xl leading-none mb-0 relative text-red-500 z-5']")
+    //(xpath = "//p[@data-testid='price']|//p[@class='price font-semibold text-2xl leading-none mb-0 relative text-red-500 z-5']")
+    @FindBy(xpath = "//p[@data-testid='price']")
     private List<WebElement> itemPrices;
 
     public void applyFilter(String dropDownOption){

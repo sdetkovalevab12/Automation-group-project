@@ -4,17 +4,10 @@
 
     <test name="All Regression tests">
 
-        <groups>
-            <run>
-                <include name="regression"/>
-            </run>
-        </groups>
 
-
-       <packages>
-           <package name="tests"></package>
-
-       </packages>
+            <packages>
+                <package name="tests"/>
+            </packages>
 
 
     </test>

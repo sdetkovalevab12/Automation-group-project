@@ -6,6 +6,7 @@
 
         <classes>
             <class name="tests.SearchTest"></class>
+            <class name="tests.SocialMediaConnectionTest"></class>
         </classes>
 
     </test>
