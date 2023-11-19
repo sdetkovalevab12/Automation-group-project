@@ -1,9 +1,11 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ReturnAndOrders;
 import utils.Driver;
+import utils.SeleniumUtils;
 
 public class TestingReturnAndOrder extends TestBase{
 @Test(groups = "smoke")
@@ -62,7 +64,7 @@ public class TestingReturnAndOrder extends TestBase{
         Assert.assertTrue(returnAndOrders.getCheckBoxNotification().isDisplayed());
         Assert.assertTrue(returnAndOrders.getCheckBoxNotification().isSelected());
     }
-    @Test(groups = "regression")
+    @Test
     public void testCase5(){
 
       // Verifying if shipping address if its saved on account
