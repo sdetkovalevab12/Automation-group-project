@@ -39,13 +39,7 @@ public void  instagrammTest_WP_35() {
     SocialMediaVereficationElementsPage icons = new SocialMediaVereficationElementsPage();
     new HomePage().getFaceBookLink().click();
  // SeleniumUtils.switchToWindow("WebstaurantStore | Facebook");  //didn't work
-
-        String main = Driver.getDriver().getWindowHandle();//returns the current window's handle/id
-               for (String windowHandle :Driver.getDriver().getWindowHandles()) {
-                if(!windowHandle.equals(main)){
-                    Driver.getDriver().switchTo().window(windowHandle);
-                }
-            }
+    SeleniumUtils.switchBetween2Windows();
    SeleniumUtils.jsClick(icons.getFbAlert());
    Assert.assertTrue(icons.getFaceBookLogo().isDisplayed());
    }
@@ -62,10 +56,11 @@ public void  instagrammTest_WP_35() {
     public void tikTokTest_WP_35() {
 
     new HomePage().getTikTokLink().click();
-    SeleniumUtils.switchToWindow("WebstaurantStore (@webstaurantstore) Official  | TikTok");
-           SeleniumUtils.waitForPageToLoad(10);
-    //     Assert.assertTrue(new SocialMediaVereficationElementsPage().getTikTokLogo().isDisplayed());
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), "https://www.tiktok.com/@webstaurantstore");
+    //SeleniumUtils.switchToWindow("WebstaurantStore (@webstaurantstore) Official  | TikTok");
+        SeleniumUtils.switchBetween2Windows();
+        SeleniumUtils.waitForPageToLoad(10);
+        Assert.assertTrue(new SocialMediaVereficationElementsPage().getTikTokLogo().isDisplayed());
+    // Assert.assertEquals(Driver.getDriver().getCurrentUrl(), "https://www.tiktok.com/@webstaurantstore");
     }
 
 }
