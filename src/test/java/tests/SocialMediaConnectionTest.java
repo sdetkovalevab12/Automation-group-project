@@ -19,8 +19,9 @@ public class SocialMediaConnectionTest extends TestBase{
 public void  instagrammTest_WP_35() {
 
     new HomePage().getInstagramLink().click();
-    SeleniumUtils.switchToWindow("WebstaurantStore (@webstaurantstore) • Instagram photos and videos");
     SeleniumUtils.waitForPageToLoad(4);
+    SeleniumUtils.switchToWindow("WebstaurantStore (@webstaurantstore) • Instagram photos and videos");
+//    SeleniumUtils.waitForPageToLoad(4);
     Assert.assertTrue(new SocialMediaVereficationElementsPage().getInstagramLogo().isDisplayed());
    }
 

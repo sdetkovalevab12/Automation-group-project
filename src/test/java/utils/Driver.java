@@ -1,8 +1,6 @@
 package utils;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,22 +9,28 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
 public class Driver {
 
-    private static ThreadLocal<WebDriver> drivers= new ThreadLocal<>();
+
+    private static ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
+
 
     private Driver(){}
 
-    public static synchronized WebDriver getDriver() {
+
+    public static synchronized WebDriver getDriver(){
+
+        if(drivers.get() == null){
+
+            String browser = System.getProperty("browser");
 
 
-        if (drivers.get() == null) {
-            String browser = ConfigReader.getProperty("browser").toLowerCase();
-            switch (browser) {
+            if(browser == null){
+                browser = ConfigReader.getProperty("browser").toLowerCase();
+            }
+
+
+            switch (browser){
                 case "chrome":
                     drivers.set(new ChromeDriver());
                     break;
@@ -50,17 +54,18 @@ public class Driver {
                     break;
                 default:
                     throw new UnsupportedOperationException(browser + " is not supported. Use chrome, edge, firefox or safari.");
+
             }
         }
-    return drivers.get();
+        return drivers.get();
     }
 
-
-    public static synchronized void  quitDriver(){
-        if(drivers.get()!=null){
+    public static synchronized void quitDriver(){
+        if(drivers.get() != null){
             drivers.get().quit();
             drivers.remove();
         }
-}
+
+    }
 
 }

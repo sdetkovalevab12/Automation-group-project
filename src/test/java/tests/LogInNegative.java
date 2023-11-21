@@ -14,7 +14,7 @@ public class LogInNegative extends TestBase {
     Faker faker = new Faker();
     String AccountDashboardTitle = Driver.getDriver().getTitle();
     String expectedAccountDashboardTitle = "Restaurant Supplies, Restaurant Supply at WebstaurantStore";
-    SignInPage signInPage = new SignInPage();
+  //  SignInPage signInPage = new SignInPage();
     @BeforeMethod(alwaysRun=true)
     public void goToSignIn() {
 
@@ -27,21 +27,31 @@ public class LogInNegative extends TestBase {
         Assert.assertEquals(SignInPageTitle, expectedSignInPageTitle);
     }
 
+
+
+
+
+
+
+
     //User provides invalid credentials
     @Test(groups="smoke")
     public void validEmailInvalidPass(){
+        SignInPage signInPage = new SignInPage();
         signInPage.getLogInEmailAddressInputField().sendKeys("pojo@fastmail.us");
         signInPage.getLogInPasswordInputField().sendKeys(faker.internet().password(), Keys.ENTER);
         Assert.assertNotEquals(AccountDashboardTitle, expectedAccountDashboardTitle);
     }
     @Test(groups="smoke")
     public void invalidEmailValidPass(){
+        SignInPage signInPage = new SignInPage();
         signInPage.getLogInEmailAddressInputField().sendKeys(faker.internet().emailAddress());
         signInPage.getLogInPasswordInputField().sendKeys("D5-test", Keys.ENTER);
         Assert.assertNotEquals(AccountDashboardTitle, expectedAccountDashboardTitle);
     }
     @Test(groups="smoke")
     public void invalidEmailInvalidPass(){
+        SignInPage signInPage = new SignInPage();
         signInPage.getLogInEmailAddressInputField().sendKeys(faker.internet().emailAddress()+"1");
         signInPage.getLogInPasswordInputField().sendKeys(faker.internet().password()+"1", Keys.ENTER);
         Assert.assertNotEquals(AccountDashboardTitle, expectedAccountDashboardTitle);

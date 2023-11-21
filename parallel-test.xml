@@ -14,15 +14,15 @@
 
     <test name="Tests 2">
         <classes>
-            <class name="tests.LogInPositive"></class>
+            <class name="tests.TestingHelpCenter"></class>
         </classes>
 
     </test>
 
     <test name="Tests 3">
         <classes>
-            <class name="tests.LogInNegative"></class>
-            <class name="tests.TestingReturnAndOrder"></class>
+            <class name="tests.AccountCreationPositive"></class>
+            <class name="tests.SignUpOption"></class>
         </classes>
 
     </test>
